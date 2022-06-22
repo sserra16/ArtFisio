@@ -9,4 +9,8 @@ app.get('/', (req, res) => {
     res.render('index')
 });
 
+app.get('/painel', (req, res) => {
+    res.render('painel')
+});
+
 app.listen('3000', () => console.log('O server está rodando'));
