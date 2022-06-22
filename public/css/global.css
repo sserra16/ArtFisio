@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+:root{
+    --cor-principal: #4EA594;
+    --cor-principal-hover: rgb(51, 109, 97);
+    --cor-black: rgba(0,0,0,0);
+}
