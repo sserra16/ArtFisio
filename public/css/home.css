@@ -98,7 +98,7 @@ main .main-content p {
 .img-home::after {
   content: "";
   position: absolute;
-  background: url("/assets/img.svg") no-repeat;
+  background: url("/assets/slide/img.svg") no-repeat;
   right: 2rem;
   top: 2rem;
   z-index: -100;
