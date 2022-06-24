@@ -11,16 +11,20 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
+    
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/home.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="./js/burguerButton.js"></script>
 
     <title>ArtFisio</title>
   </head>
   <body>
-    <%- include('../views/partials/aside') %> 
+    <%- include('../views/partials/aside') %>
     <main>
-     <%- include('../views/partials/header') %> 
+      <%- include('../views/partials/header') %>
       <div class="conteiner">
         <div class="main-content">
           <div class="main-text">
@@ -35,5 +39,20 @@
         </div>
       </div>
     </main>
+
+    <!-- === SCROLL REVEAL === -->
+    <script src="./js/scrollreveal.min.js"></script>
+
+    <script>
+      const sr = ScrollReveal({
+        origin: "top",
+        distance: "60px",
+        duration: "2500",
+        delay: "400",
+      });
+
+      sr.reveal(".main-text");
+      sr.reveal(".img-home", { delay: "500" });
+    </script>
   </body>
 </html>

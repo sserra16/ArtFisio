@@ -13,4 +13,8 @@ app.get('/calendario', (req, res) => {
     res.render('calendario', { page: "calendario" })
 });
 
+app.get('/profissionais', (req, res) => {
+    res.render('profissionais', { page: "profissionais" })
+});
+
 app.listen('3000', () => console.log('O server está rodando'));

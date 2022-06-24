@@ -1,13 +1,23 @@
 <header>
-    <div class="icon bell"></div>
+  <input onclick="setAside()" type="checkbox" id="x-hamburger" />
 
+  <label for="x-hamburger">
+    <div class="x-hamburger"></div>
+  </label>
+
+  <div class="right">
+    <div class="icon bell"></div>
 
     <!-- <span>Samuel Serra</span>
     <div class="perfil"></div> -->
 
     <button class="primary">Entre ou Cadastre-se</button>
-    
+
     <!-- <div class="icon arrow"></div> -->
 
-    <div class="icon btt-darkmode"></div>
-  </header>
+    <i class="ri-moon-line" id="theme-button"></i>
+  </div>
+
+  <script src="./js/darkMode.js"></script>
+
+</header>

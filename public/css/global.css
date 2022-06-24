@@ -11,23 +11,82 @@ body {
   display: flex;
   height: 100vh;
   width: 100vw;
+  background-color: var(--branco);
 }
 
 :root {
   --cor-principal: #4ea594;
   --cor-principal-hover: rgb(51, 109, 97);
-  --cor-black: rgba(0, 0, 0, 0);
+  --cor-black: rgba(0, 0, 0, .7);
+  --branco: aliceblue;
+  --cor-cinza: #d7d7d7;
 }
 
 span {
   color: var(--cor-principal);
 }
 
+/* === DARK THEME === */
+body.dark-theme {
+  --cor-principal: #4ea594;
+  --cor-principal-hover: rgb(51, 109, 97);
+  --cor-black: aliceblue;
+  --cor-cinza: rgb(58, 97, 89);
+  --branco: #001C0F;
+}
+
 /* === BUTTON === */
+
+.x-hamburger {
+  height: 30px;
+  width: 30px;
+  background-color: var(--cor-principal);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+.x-hamburger::before {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 10%;
+  top: 30%;
+  left: 15%;
+  border-radius: calc((50vh * 0.2)/2);
+  background-color: var(--branco);
+  transition: transform 0.5s;
+}
+
+.x-hamburger::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 10%;
+  top: 60%;
+  left: 15%;
+  border-radius: calc((50vh * 0.2)/2);
+  background-color: var(--branco);
+  transition: transform 0.5s;
+}
+
+#x-hamburger {
+  display: none;
+}
+
+#x-hamburger:checked ~ label > .x-hamburger::before {
+  transform: translate(0, 150%) rotateZ(225deg);
+}
+
+#x-hamburger:checked ~ label > .x-hamburger::after {
+  transform: translate(0, -150%) rotateZ(-225deg);
+}
+
 
 button.primary {
   background-color: var(--cor-principal);
-  color: aliceblue;
+  color: var(--branco);
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   transition: ease-in-out 0.2s;
@@ -41,10 +100,19 @@ button.primary:hover {
 
 /* === ASIDE === */
 
+@keyframes setAside {
+  0% { margin-left: -100px; }
+}
+
+aside.active {
+  display: flex;
+  animation: setAside .4s;
+} 
+
 aside {
   width: 20rem;
   height: 100%;
-  background-color: #d7d7d7;
+  background-color: var(--cor-cinza);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,70 +136,31 @@ aside nav {
 }
 
 aside nav a {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--cor-black);
   display: flex;
   align-items: center;
+  column-gap: .6rem;
+  margin-left: .1rem;
+  padding: .7rem;
 }
 
 aside nav a.selected {
   transition: 0.2s;
-  background-color: aliceblue;
+  background-color: var(--branco);
   color: var(--cor-principal);
   border-radius: 1rem;
 }
 
 aside nav a:hover {
   transition: 0.2s;
-  background-color: aliceblue;
+  background-color: var(--branco);
   color: var(--cor-principal);
   border-radius: 1rem;
 }
 
 aside nav #divisor {
-  border: solid 0.5px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 0.5px var(--cor-black);
   margin: 1rem;
-}
-
-/* ICONS */
-
-aside nav .painel::before {
-  content: "";
-  display: flex;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: url("/assets/grid.svg") no-repeat center center/40%;
-}
-
-aside nav .calendario::before {
-  content: "";
-  display: flex;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: url("/assets/calendario.svg") no-repeat center center/40%;
-}
-
-aside nav .profissionais::before {
-  content: "";
-  display: flex;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: url("/assets/profissionais.svg") no-repeat center center/40%;
-}
-
-aside nav .config::before {
-  content: "";
-  display: flex;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: url("/assets/config.svg") no-repeat center center/40%;
 }
 
 /* === HEADER ===  */
@@ -140,11 +169,17 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   color: var(--cor-principal);
   column-gap: 1rem;
   padding: 1rem;
-  border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 0.5px var(--cor-black);
+}
+
+header div.right {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
 }
 
 div.perfil {
@@ -172,9 +207,8 @@ div.perfil {
   background-size: contain;
 }
 
-.icon.btt-darkmode {
-  background: url("/assets/moon.svg") no-repeat;
-  background-size: contain;
+#theme-button {
+  cursor: pointer;
 }
 
 .icon.arrow {
@@ -200,4 +234,24 @@ main {
   width: 80%;
   height: 100%;
   margin-left: 2rem;
+  transition: ease-in-out .4s;
+  color: var(--cor-black);
+}
+
+/* === RESPONSIVIDADE === */
+
+@media (max-width: 1400px) {
+  .x-hamburger {
+    display: block;
+  }
+
+  aside {
+    animation: setAside .2s;
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    margin-right: 2rem;
+  }
 }
