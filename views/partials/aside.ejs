@@ -1,10 +1,11 @@
 <aside>
-    <h1>Art<span>Fisio</span></h1>
-    <nav>
-      <a class="painel" href="/painel">Painel de Controle</a>
-      <a class="calendario" href="">Calendário</a>
-      <a class="profissionais" href="">Profissionais</a>
-      <div id="divisor"></div>
-      <a class="config" href="">Cofigurações Conta</a>
-    </nav>
-  </aside>
+  <a href="/" class="title">Art<span>Fisio</span></a>
+  <nav>
+    <a class="calendario <% if(page == 'calendario') {%> selected <% } %>" href="/calendario"
+      >Calendário</a
+    >
+    <a class="profissionais" href="">Profissionais</a>
+    <div id="divisor"></div>
+    <a class="config" href="">Cofigurações Conta</a>
+  </nav>
+</aside>

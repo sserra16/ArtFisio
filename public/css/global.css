@@ -19,6 +19,10 @@ body {
   --cor-black: rgba(0, 0, 0, 0);
 }
 
+span {
+  color: var(--cor-principal);
+}
+
 /* === BUTTON === */
 
 button.primary {
@@ -47,17 +51,13 @@ aside {
   border-radius: 0 10px 0 0;
 }
 
-aside h1 {
+aside a.title {
   color: #004022;
   margin: 1.5rem;
   letter-spacing: 0.8px;
   font-size: 1.8rem;
   width: 82%;
   text-align: left;
-}
-
-aside h1 span {
-  color: var(--cor-principal);
 }
 
 aside nav {
@@ -71,6 +71,13 @@ aside nav a {
   color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
+}
+
+aside nav a.selected {
+  transition: 0.2s;
+  background-color: aliceblue;
+  color: var(--cor-principal);
+  border-radius: 1rem;
 }
 
 aside nav a:hover {
@@ -190,7 +197,7 @@ header button {
 /* === MAIN ===  */
 
 main {
-  width: 100%;
+  width: 80%;
   height: 100%;
   margin-left: 2rem;
 }

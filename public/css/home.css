@@ -23,10 +23,6 @@ main .main-content h1 {
   font-weight: 100;
 }
 
-main .main-content h1 span {
-  color: var(--cor-principal);
-}
-
 main .main-content p {
   width: 30rem;
   margin: 1.4rem 0;
